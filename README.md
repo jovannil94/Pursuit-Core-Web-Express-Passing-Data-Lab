@@ -54,3 +54,13 @@ Your response should look like the following:
 
 - Use the [Pixabay API](https://pixabay.com/api/docs/#api_javascript_example) to do your image search. 
 - Parse through their results.
+
+## Fontend
+
+Build a simple frontend to access your backend.  It should consist of:
+
+- An `input` for entering the search term
+- A `button` for "Gif search"
+- A `button` for "Image search"
+
+Tapping a button should load either gifs or images in a `div` below the search bar.
