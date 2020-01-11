@@ -18,8 +18,7 @@ const displayImage = async () => {
     let input = document.querySelector("input").value;
     try{
         let res = await axios.get(`https://pixabay.com/api/?key=${pixyKey}&q=${input}`)
-        debugger
-        res.data.hits.slice(-5).forEach(pic =>{
+        res.data.hits.slice(-6).forEach(pic =>{
             let div = document.querySelector("#pics");
             let image = document.createElement("img");
             image.src = pic.largeImageURL;
@@ -33,7 +32,7 @@ const displayImage = async () => {
 const displayGifs = async () => {
     let input = document.querySelector("input").value;
     try{
-        let res = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${gifKey}&q=${input}&limit=5&offset=0&rating=G&lang=en`);
+        let res = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${gifKey}&q=${input}&limit=6&offset=0&rating=G&lang=en`);
         res.data.data.forEach(gifs =>{
             let div = document.querySelector("#pics");
             let image = document.createElement("img");
