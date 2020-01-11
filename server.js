@@ -11,8 +11,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-let key = "eZzQ4D3kLuqDmPlQUgDqmlD9dGc4JZl1"
-
 app.get("/gif", (req, res) => {
     console.log(req.query);
     res.json(req.query);
@@ -21,4 +19,8 @@ app.get("/gif", (req, res) => {
 app.get("/images", (req, res) =>{
     console.log(req.query);
     res.json(req.query);
+})
+
+app.listen(port, () =>{
+    console.log("Listening to port", port);
 })
