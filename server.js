@@ -20,16 +20,22 @@ app.get("/gif", async(req, res) => {
 })
 
 app.get("/images", async (req, res) =>{
-    let response = await axios.get(`https://pixabay.com/api/?key=${pixyKey}&q=${req.query}`)
-    let url = []
-    response.data.hits.forEach(pic=>{
-        url.push(pic.largeImageURL)
-    })
-    console.log(req.query);
-    res.json({
-        status: 200,
-        url: pic.largeImageURL
-    });
+    try{
+        console.log(req.query)
+        let response = await axios.get(`https://pixabay.com/api/?key=${pixyKey}&q=${req.query.q}`)
+        let url = []
+        response.data.hits.forEach(pic=>{
+            console.log(pic)
+            url.push(pic.largeImageURL)
+        })
+        console.log(req.query);
+        res.json({
+            status: 200,
+            // url: pic.largeImageURL
+        });
+    } catch(err) {
+        console.log(err)
+    }
 })
 
 app.listen(port, () =>{

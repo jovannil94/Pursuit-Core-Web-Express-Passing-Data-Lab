@@ -17,8 +17,9 @@ const setGif = () => {
 const displayImage = async () => {
     let input = document.querySelector("input").value;
     try{
-        let res = await axios.get(`https://pixabay.com/api/?key=${pixyKey}&q=${input}`)
-        res.data.hits.slice(-6).forEach(pic =>{
+        let res = await axios.get(`http://localhost:3000/images/?q=${input}`)
+        console.log(res)
+        res.data.hits.forEach(pic =>{
             let div = document.querySelector("#pics");
             let image = document.createElement("img");
             image.src = pic.largeImageURL;
